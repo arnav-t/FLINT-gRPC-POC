@@ -1,0 +1,17 @@
+syntax = "proto3";
+package flint;
+
+message FlintRequest {
+  string type = 1;
+}
+
+message FlintResponse {
+  int32 exitCode = 1;
+  float execTime = 2;
+  string response = 3;
+}
+
+service Flint {
+  // Run FLINT example
+  rpc Run (FlintRequest) returns (FlintResponse) {}
+}
